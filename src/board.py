@@ -19,6 +19,43 @@ class Board:
             for col in range(COLS):
                 self.squares[row][col] = Square(row, col)
 
+    
+    def calcMoves(self, piece):
+
+
+        def knightMoves(row: int, col: int):
+            possible_moves = [
+                (row-2, col-1),
+                (row-2, col+1),
+                (row+1, col+2),
+                (row+1, col-2),
+                (row+2, col+1),
+                (row+2, col-1),
+                (row+1, col+2),
+                (row+1, col-2),
+            ]
+
+            for move in possible_moves:
+                move_row, move_col = move
+                if not Square.inRange(move_row, move_col):  continue
+
+
+        if isinstance(piece, Pawn):
+            pass
+
+        if isinstance(piece, Knight):
+            pass
+
+        if isinstance(piece, Bishop):
+            pass
+
+        if isinstance(piece, Rook):
+            pass
+
+        if isinstance(piece, Queen):
+            pass
+
+
     def _addPieces(self, color):
         squares = self.squares
 

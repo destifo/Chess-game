@@ -29,6 +29,8 @@ class Game:
                 if board.squares[row][col].hasPiece():
                     piece = board.squares[row][col].piece
                     
+                    if piece is self.dragger.piece: continue
+
                     img = pygame.image.load(piece.image_url)
                     img_center = col * SQSIZE + SQSIZE // 2, row * SQSIZE + SQSIZE // 2
                     piece.tex_rect = img.get_rect(center=img_center)

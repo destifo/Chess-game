@@ -22,6 +22,9 @@ class Main:
             game.drawBG(screen)
             game.drawPieces(screen)
 
+            if dragger.dragging:
+                dragger.updateBlit(screen)
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -37,14 +40,19 @@ class Main:
                     if board.squares[clicked_row][clicked_col].hasPiece:
                         piece =  board.squares[clicked_row][clicked_col].piece
                         dragger.saveInitial(event.pos)
+                        dragger.dragPiece(piece)
 
                 # hover
                 if event.type == pygame.MOUSEMOTION:
-                    pass
+                    if dragger.dragging:
+                        dragger.updateMouse(event.pos)
+                        game.drawBG(screen)
+                        game.drawPieces(screen)
+                        dragger.updateBlit(screen)
 
                 # release click
                 if event.type == pygame.MOUSEBUTTONUP:
-                    pass
+                    dragger.unDragPiece()
 
             
 

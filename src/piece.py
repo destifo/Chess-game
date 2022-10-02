@@ -14,11 +14,11 @@ class Piece:
         self.moved = False
         
         self.image_url = image_url
-        self._setImage()
+        self.setImage()
         self.tex_rect = tex_rect
 
     
-    def _setImage(self, size=80) -> None:
+    def setImage(self, size=80) -> None:
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
         self.image_url = os.path.join(
             f'../assets/images/imgs-{size}px/{self.color}_{self.name}.png'
